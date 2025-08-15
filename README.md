@@ -1,12 +1,18 @@
 # arp-monitor
 Python script to monitor and log ARP brodcasts and track IP conflicts
 
-### Step 1: Create the `arpmon` service account
+### Step 1: Install dependencies
+```
+sudo apt update
+sudo apt install python3-scapy python3-requests
+```
+
+### Step 2: Create the `arpmon` service account
 ```
 sudo useradd -r -s /usr/sbin/nologin arpmon
 ```
 
-### Step 2: Create required directories and copy files with permissions
+### Step 3: Create required directories and copy files with permissions
 ```
 # Config directory
 sudo mkdir -p /etc/arp-monitor
@@ -28,7 +34,7 @@ sudo chown -R arpmon:arpmon /var/lib/arp-monitor
 sudo chmod 755 /var/lib/arp-monitor
 ```
 
-### Step 3: Configure systemd service
+### Step 4: Configure systemd service
 ```
 sudo cp /opt/arp-monitor-src/systemd/arp-monitor.service /etc/systemd/system/
 sudo systemctl daemon-reload
@@ -36,5 +42,5 @@ sudo systemctl enable --now arp-monitor.service
 sudo systemctl status arp-monitor.service
 ```
 
-### Step 4: Access the web interface
+### Step 5: Access the web interface
 Open a browser on your network: `http://<server-ip>:8080`
