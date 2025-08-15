@@ -1,3 +1,10 @@
 {
-  "telegramEnabled": true
+  "telegramEnabled": false,
+  "telegramBotToken": "<YOUR_BOT_TOKEN>",
+  "telegramChatId": "<YOUR_CHAT_ID>",
+  "entryTimeoutHours": 24,
+  "alertCooldownSeconds": 300,
+  "httpPort": 8080,
+  "httpLogLevel": "ERROR",
+  "stateSaveIntervalMinutes": 30
 }

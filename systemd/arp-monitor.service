@@ -1,6 +1,16 @@
 [Unit]
-Description=ARP Monitor
+Description=ARP Monitor Service
+After=network.target
+
 [Service]
+Type=simple
 ExecStart=/usr/bin/python3 /opt/arp-monitor/arp-monitor.py
+User=arpmon
+Group=arpmon
+WorkingDirectory=/opt/arp-monitor
+Restart=on-failure
+AmbientCapabilities=CAP_NET_RAW
+NoNewPrivileges=yes
+
 [Install]
 WantedBy=multi-user.target
