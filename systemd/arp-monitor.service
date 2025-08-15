@@ -1,0 +1,6 @@
+[Unit]
+Description=ARP Monitor
+[Service]
+ExecStart=/usr/bin/python3 /opt/arp-monitor/arp-monitor.py
+[Install]
+WantedBy=multi-user.target
